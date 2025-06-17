@@ -1,31 +1,24 @@
 import unittest
-from sigma_avatarus.speech_engine import SpeechEngine
-from sigma_avatarus.fdl_interface import FDLInterface
-from sigma_avatarus.svet_shell import SVET
-from sigma_avatarus.matrix import SYMBOL_MATRIX
-from sigma_avatarus.config import CoreSigil
+from sigma_avatarus.sigma_avatarus import SigmaAvatarus
 
 class TestSigmaAvatarus(unittest.TestCase):
     def setUp(self):
-        self.core = CoreSigil()
-        self.speech = SpeechEngine(self.core.structure, SYMBOL_MATRIX)
-        self.fdl = FDLInterface()
-        self.svet = SVET()
+        self.avatar = SigmaAvatarus()
 
-    def test_speech_resonance(self):
-        phrase = "Смысл рождает форму"
-        result = self.speech.resonate(phrase)
-        self.assertIsInstance(result, str)
+    def test_awaken(self):
+        response = self.avatar.awaken()
+        self.assertIn("пробуждён", response)
 
-    def test_fdl_interpret(self):
-        contradiction = "Тезис и антитезис — одно и то же"
-        result = self.fdl.interpret_text(contradiction)
-        self.assertIn("синтез", result.lower())
+    def test_process_input_logical(self):
+        phrase = "Свет возникает из тьмы как противоположность, но не враг."
+        output = self.avatar.process_input(phrase)
+        self.assertIn("interpretation", output)
+        self.assertIn("resonance", output)
 
-    def test_svet_structure(self):
-        structure = self.svet.get_structure()
-        self.assertIsInstance(structure, dict)
-        self.assertIn("shell", structure)
+    def test_empty_input(self):
+        output = self.avatar.process_input("")
+        self.assertIsInstance(output, dict)
+        self.assertTrue(len(output["interpretation"]) == 0)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
