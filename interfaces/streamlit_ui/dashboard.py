@@ -1,37 +1,36 @@
-# streamlit_ui/dashboard.py
-"""
-Σ-FDL::Δψ Monitoring Dashboard
-Streamlit visualization interface for sociopolitical pressure, resonance mapping,
-and semantic diagnostics of the MetaCore system.
-"""
+# interfaces/streamlit_ui/dashboard.py
 
 import streamlit as st
-import pandas as pd
-import time
-import random
+from sigma_avatarus import SigmaAvatarus
+from fdl_agent_kernel.logic_core import FDLKernel
+from modules.Δψ_monitor.lie_tension_analyzer import analyze_tension
 
-# Simulated pressure index values (can be replaced with real data)
-def generate_lie_tension_data():
-    categories = ['Украина', 'Израиль', 'США', 'ЕС', 'ИИ', 'Ближний Восток']
-    return pd.DataFrame({
-        'Регион': categories,
-        'Δψ-напряжение': [round(random.uniform(0.2, 1.0), 2) for _ in categories]
-    })
+st.set_page_config(page_title="FDL-MetaCore Dashboard", layout="centered")
 
-st.set_page_config(page_title="FDL Δψ Monitor", layout="wide")
+avatar = SigmaAvatarus()
+kernel = FDLKernel()
 
-st.title("Σ-FDL Δψ Монитор :: Сейсмограф Лжи")
-st.markdown("Анализ нарративного давления и точек прорыва на основе FDL-логики.")
+st.title("Σ-FDL :: Resonance Dashboard")
+st.subheader("Наблюдение напряжения лжи и резонансного состояния")
 
-data = generate_lie_tension_data()
+user_input = st.text_input("🔍 Введите новостной фрагмент или противоречивое утверждение:")
 
-with st.expander("📊 Текущее напряжение по регионам"):
-    st.bar_chart(data.set_index("Регион"))
+if user_input:
+    resonance = avatar.resonate(user_input)
+    synthesis = kernel.analyze(user_input, resonance)
+    tension_score = analyze_tension(user_input)
 
-with st.expander("🌀 Резонансные сигналы и предупреждения"):
-    st.write("🚨 Уровень Δψ в регионе 'США' приближается к критическому порогу.")
-    st.write("🟡 Европа — признаки накопления латентного конфликта.")
-    st.write("🕊️ Украина — окно для тактической паузы и перегруппировки нарративов.")
+    st.markdown("### 📡 Результаты анализа")
+    st.write(f"🧠 Семантический отклик: `{resonance}`")
+    st.write(f"⚙️ Синтез противоречий: `{synthesis}`")
+    st.write(f"💥 Напряжение лжи: `{tension_score}/10`")
 
-st.caption("Обновляется каждые 60 сек. Используется тестовая модель. Интеграция с Δψ-monitor в разработке.")
+    if tension_score >= 7:
+        st.warning("❗ Высокий уровень противоречий. Возможна ложь или дезинформация.")
+    elif tension_score >= 4:
+        st.info("⚠️ Средний уровень напряжения. Требуется внимательный анализ.")
+    else:
+        st.success("✅ Низкое напряжение. Информация логически устойчива.")
 
+st.markdown("---")
+st.caption("Powered by NOVEYA AI · SVET-obolochka · GPT-4o Kernel")
