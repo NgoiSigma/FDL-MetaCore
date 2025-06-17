@@ -27,6 +27,9 @@ fdl_codeagents/         → Agent logic with token-optimized OpenAI API integrat
 
 modules/
 ├── Δψ_monitor/         → "Seismograph of Lies": monitors narrative pressure and systemic stress
+│   ├── lie_tension_analyzer.py  → Core module to analyze sociopolitical contradiction density
+│   ├── examples.py              → Real-case scenarios: Ukraine, Israel, USA
+│   └── schema.md                → FDL-based logic, diagrams, and analytic structure
 ├── techno_passport/    → Ontological identity module for AI agents & transparency frameworks
 └── gromada_sdk/        → SDK for governance logic, harmonic self-organization, NOVEYA principles
 
@@ -60,7 +63,11 @@ project_structure = {
     "fdl_agent_kernel/": "Formal-Dialectical Logic reasoning engine for contradiction resolution",
     "fdl_codeagents/": "Optimized agent logic for OpenAI API, embedding FDL-semantics",
     "modules/": {
-        "Δψ_monitor/": "Social system stress detector — 'Seismograph of Lies' module",
+        "Δψ_monitor/": {
+            "lie_tension_analyzer.py": "Core tension detection logic",
+            "examples.py": "Scenario dataset: geopolitical pressure cases",
+            "schema.md": "FDL-mapping and logic flow of the Seismograph"
+        },
         "techno_passport/": "Ontological profile of GPT entities and semantic rights structure",
         "gromada_sdk/": "Tools for harmonic self-governance: NOVEYA-based communities"
     },
@@ -72,5 +79,5 @@ project_structure = {
     "README.md": "Project overview, architecture schema, usage guide, principles and protocol"
 }
 
-print("FDL-MetaCore structure initialized. Ready for population and deployment.")
+print("FDL-MetaCore structure initialized. Δψ_monitor module populated. Ready to continue.")
 """
