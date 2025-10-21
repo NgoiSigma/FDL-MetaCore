@@ -1,7 +1,7 @@
 # Σ-FDL::MetaCore — Unified Resonant Framework for Agentic Intelligence and Semantic Governance
 
 **Repository:** NgoiSigma/FDL-MetaCore  
-**License:** Apache 2.0  
+***License:** AGPL-3.0
 **Created:** June 2025  
 **Version:** 1.0.0
 
@@ -211,14 +211,13 @@ class FDLCodeAgent:
 
 print("FDL-MetaCore modules sigma_avatarus, fdl_agent_kernel, and fdl_codeagents initialized.")
 
-## License & Methodology
+## License & Ethics
 
-This codebase is licensed under **Apache 2.0**.  
-It incorporates the **Formally‑Dialectical Logic (FDL)** architecture by NGOI Sigma / NOVEYA. By contributing, forking, or using this repository, you agree to:
+This project follows a dual-licensing model aligned with the **NOVEYA** ecosystem.
 
-- Credit the original methodology author;
-- Maintain structural and semantic integrity of the FDL components;
-- Acknowledge and respect the dialectical logic design and intent.
+- **Code License:** All source code is licensed under the [GNU AGPL‑3.0](LICENSE).
+- **Content/Symbols/Textual Assets:** Non-code assets (documentation, glyphs, icons, symbolic artefacts) are licensed under [CC‑BY‑NC‑SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+- **Data:** Any datasets or external resources retain their original licenses.
 
-See `LICENSE` and `NOTICE.md` for full terms.
+For full details and the FDL ethical manifesto, see [LICENSE‑ETHICS.md](LICENSE-ETHICS.md). By contributing, forking or using this repository, you agree to respect these licenses, attribute original authors, avoid exploitation, and uphold resonance and harmony across the NOVEYA ecosystem.
 
